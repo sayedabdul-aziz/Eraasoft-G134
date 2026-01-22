@@ -15,4 +15,6 @@ void main() {
     Person p = Person.fromJson(element);
     p.display();
   });
+
+  Person p = Person(name: 'Ahmed', age: 21, gender: Gender.male);
 }

@@ -7,11 +7,17 @@
 // map["name"][0]["first_name"]
 // person.name
 
+
+enum Gender {
+  male,
+  female
+}
+
 class Person {
   // attributes
   String? name;
   int? age;
-  String? gender;
+  Gender? gender;
 
   Person({required this.name, required this.age, this.gender});
 
