@@ -2,13 +2,19 @@
 // response => list of map<String,dynamic>
 // parsing to list<ProductModel>
 // display list of products
+// UniqueKey();
+// UniqueKey();
+
+import 'package:flutter/material.dart';
 
 class ProductModel {
   final String id;
   final String name;
+
   final double price;
   final String weight;
   final String image;
+  final String tagKey;
 
   ProductModel({
     required this.id,
@@ -16,12 +22,14 @@ class ProductModel {
     required this.price,
     required this.weight,
     required this.image,
+    required this.tagKey,
   });
 }
 
 List<ProductModel> offers = [
   ProductModel(
     id: '1',
+    tagKey: UniqueKey().toString(),
     name: 'Banana',
     price: 22,
     weight: '1kg',
@@ -29,6 +37,7 @@ List<ProductModel> offers = [
   ),
   ProductModel(
     id: '2',
+    tagKey: UniqueKey().toString(),
     name: 'Apple',
     price: 24,
     weight: '1kg',
@@ -36,6 +45,7 @@ List<ProductModel> offers = [
   ),
   ProductModel(
     id: '3',
+    tagKey: UniqueKey().toString(),
     name: 'Orange',
     price: 10.5,
     weight: '1kg',
@@ -43,6 +53,7 @@ List<ProductModel> offers = [
   ),
   ProductModel(
     id: '4',
+    tagKey: UniqueKey().toString(),
     name: 'Carrot',
     price: 5.5,
     weight: '1kg',
@@ -53,6 +64,7 @@ List<ProductModel> offers = [
 List<ProductModel> bestSelling = [
   ProductModel(
     id: '2',
+    tagKey: UniqueKey().toString(),
     name: 'Apple',
     price: 24,
     weight: '1kg',
@@ -60,6 +72,7 @@ List<ProductModel> bestSelling = [
   ),
   ProductModel(
     id: '1',
+    tagKey: UniqueKey().toString(),
     name: 'Banana',
     price: 22,
     weight: '1kg',
@@ -67,6 +80,7 @@ List<ProductModel> bestSelling = [
   ),
   ProductModel(
     id: '3',
+    tagKey: UniqueKey().toString(),
     name: 'Orange',
     price: 10.5,
     weight: '1kg',
@@ -74,6 +88,7 @@ List<ProductModel> bestSelling = [
   ),
   ProductModel(
     id: '4',
+    tagKey: UniqueKey().toString(),
     name: 'Carrot',
     price: 5.5,
     weight: '1kg',
@@ -84,6 +99,7 @@ List<ProductModel> bestSelling = [
 List<ProductModel> allProducts = [
   ProductModel(
     id: '2',
+    tagKey: UniqueKey().toString(),
     name: 'Apple',
     price: 24,
     weight: '1kg',
@@ -91,6 +107,7 @@ List<ProductModel> allProducts = [
   ),
   ProductModel(
     id: '1',
+    tagKey: UniqueKey().toString(),
     name: 'Banana',
     price: 22,
     weight: '1kg',
@@ -98,6 +115,7 @@ List<ProductModel> allProducts = [
   ),
   ProductModel(
     id: '3',
+    tagKey: UniqueKey().toString(),
     name: 'Orange',
     price: 10.5,
     weight: '1kg',
@@ -105,6 +123,7 @@ List<ProductModel> allProducts = [
   ),
   ProductModel(
     id: '4',
+    tagKey: UniqueKey().toString(),
     name: 'Carrot',
     price: 5.5,
     weight: '1kg',
@@ -112,6 +131,7 @@ List<ProductModel> allProducts = [
   ),
   ProductModel(
     id: '2',
+    tagKey: UniqueKey().toString(),
     name: 'Apple Pro',
     price: 24,
     weight: '1kg',
@@ -119,6 +139,7 @@ List<ProductModel> allProducts = [
   ),
   ProductModel(
     id: '1',
+    tagKey: UniqueKey().toString(),
     name: 'Banana2',
     price: 22,
     weight: '1kg',
@@ -126,6 +147,7 @@ List<ProductModel> allProducts = [
   ),
   ProductModel(
     id: '3',
+    tagKey: UniqueKey().toString(),
     name: 'Orange2',
     price: 10.5,
     weight: '1kg',
@@ -133,6 +155,7 @@ List<ProductModel> allProducts = [
   ),
   ProductModel(
     id: '4',
+    tagKey: UniqueKey().toString(),
     name: 'Carrot2',
     price: 5.5,
     weight: '1kg',

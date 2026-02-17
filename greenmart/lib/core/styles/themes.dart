@@ -13,6 +13,7 @@ abstract class AppThemes {
       centerTitle: true,
       surfaceTintColor: Colors.transparent,
     ),
+    dividerColor: Colors.transparent,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primaryColor,
