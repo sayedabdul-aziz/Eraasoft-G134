@@ -6,9 +6,11 @@ class PasswordTextFormField extends StatefulWidget {
     super.key,
     this.hintText,
     required this.controller,
+    this.validator,
   });
   final String? hintText;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
 
   @override
   State<PasswordTextFormField> createState() => _PasswordTextFormFieldState();
@@ -33,14 +35,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
           icon: Icon(obscureText ? Icons.visibility_off : Icons.remove_red_eye),
         ),
       ),
-      validator: (input) {
-        if (input!.isEmpty) {
-          return 'Please enter your password';
-        } else if (input.length < 6) {
-          return 'Password must be at least 6 characters';
-        }
-        return null;
-      },
+      validator: widget.validator,
     );
   }
 }

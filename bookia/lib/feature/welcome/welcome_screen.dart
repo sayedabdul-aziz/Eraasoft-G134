@@ -4,7 +4,8 @@ import 'package:bookia/core/styles/colors.dart';
 import 'package:bookia/core/styles/text_styles.dart';
 import 'package:bookia/core/widgets/custom_svg_picture.dart';
 import 'package:bookia/core/widgets/main_button.dart';
-import 'package:bookia/feature/auth/page/login_screen.dart';
+import 'package:bookia/feature/auth/presentation/page/login_screen.dart';
+import 'package:bookia/feature/auth/presentation/page/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -47,7 +48,9 @@ class WelcomeScreen extends StatelessWidget {
                   textColor: AppColors.darkColor,
                   borderColor: AppColors.darkColor,
                   text: 'Register',
-                  onPressed: () {},
+                  onPressed: () {
+                    pushTo(context, const RegisterScreen());
+                  },
                 ),
                 Spacer(flex: 1),
               ],
