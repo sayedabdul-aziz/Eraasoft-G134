@@ -159,7 +159,7 @@ class CheckoutBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            MainButton(text: 'Checkou', onPressed: () {}),
+            MainButton(text: 'Checkout', onPressed: () {}),
           ],
         ),
       ),

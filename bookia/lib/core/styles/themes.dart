@@ -56,6 +56,8 @@ abstract class AppThemes {
         fontWeight: FontWeight.w600,
         height: 2,
       ),
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       elevation: 0,
     ),
     colorScheme: ColorScheme.fromSeed(
