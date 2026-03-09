@@ -8,4 +8,6 @@ abstract class Apis {
   static const register = '/register';
 
   // home
+  static const sliders = '/sliders';
+  static const productsBestseller = '/products-bestseller';
 }

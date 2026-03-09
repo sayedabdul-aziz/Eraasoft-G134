@@ -47,9 +47,5 @@ class AuthCubit extends Cubit<AuthState> {
   }
 }
 
-
-
-
-
 // UI  => Cubit(Function) => Repo (Request Api)
 // Repo (Response) => Cubit(States) => UI
