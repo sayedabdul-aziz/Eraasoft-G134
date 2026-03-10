@@ -13,8 +13,10 @@
         "flutter_bloc",
         "flutter_svg",
         "gap",
+        "go_router",
         "lottie",
         "shared_preferences",
+        "shimmer",
         "smooth_page_indicator"
       ],
       "devDependencies": [
@@ -48,6 +50,17 @@
       ]
     },
     {
+      "name": "go_router",
+      "version": "17.1.0",
+      "dependencies": [
+        "collection",
+        "flutter",
+        "flutter_web_plugins",
+        "logging",
+        "meta"
+      ]
+    },
+    {
       "name": "smooth_page_indicator",
       "version": "2.0.1",
       "dependencies": [
@@ -55,8 +68,8 @@
       ]
     },
     {
-      "name": "carousel_slider",
-      "version": "5.1.2",
+      "name": "shimmer",
+      "version": "3.0.0",
       "dependencies": [
         "flutter"
       ]
@@ -135,6 +148,13 @@
         "meta",
         "mime",
         "path"
+      ]
+    },
+    {
+      "name": "carousel_slider",
+      "version": "5.1.2",
+      "dependencies": [
+        "flutter"
       ]
     },
     {
@@ -225,6 +245,13 @@
       "name": "lints",
       "version": "6.1.0",
       "dependencies": []
+    },
+    {
+      "name": "flutter_web_plugins",
+      "version": "0.0.0",
+      "dependencies": [
+        "flutter"
+      ]
     },
     {
       "name": "shared_preferences_windows",
@@ -476,13 +503,6 @@
       "dependencies": []
     },
     {
-      "name": "flutter_web_plugins",
-      "version": "0.0.0",
-      "dependencies": [
-        "flutter"
-      ]
-    },
-    {
       "name": "plugin_platform_interface",
       "version": "2.1.8",
       "dependencies": [
@@ -575,6 +595,11 @@
         "collection",
         "meta"
       ]
+    },
+    {
+      "name": "logging",
+      "version": "1.3.0",
+      "dependencies": []
     }
   ],
   "configVersion": 1

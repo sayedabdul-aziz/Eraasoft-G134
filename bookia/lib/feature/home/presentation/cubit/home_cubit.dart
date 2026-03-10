@@ -18,9 +18,9 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeLoadingState());
 
     // run apis in parallel (1 sec)
-    var responses = await Future.value([
-      await HomeRepo.getSliders(),
-      await HomeRepo.getBestSellers(),
+    var responses = await Future.wait([
+      HomeRepo.getSliders(),
+      HomeRepo.getBestSellers(),
     ]);
 
     // check responses

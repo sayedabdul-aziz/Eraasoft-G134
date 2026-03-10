@@ -1,7 +1,7 @@
+import 'package:bookia/core/routes/routes.dart';
 import 'package:bookia/core/services/dio/dio_provider.dart';
 import 'package:bookia/core/services/local/shared_pref.dart';
 import 'package:bookia/core/styles/themes.dart';
-import 'package:bookia/feature/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -16,10 +16,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: Routes.routes,
       debugShowCheckedModeBanner: false,
       theme: AppThemes.lightTheme,
-      home: SplashScreen(),
     );
   }
 }

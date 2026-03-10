@@ -1,4 +1,6 @@
 import 'package:bookia/core/styles/text_styles.dart';
+import 'package:bookia/core/widgets/shimmer/grid_shimmer.dart';
+import 'package:bookia/core/widgets/shimmer/text_shimmer.dart';
 import 'package:bookia/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:bookia/feature/home/presentation/cubit/home_state.dart';
 import 'package:bookia/feature/home/presentation/widgets/book_card.dart';
@@ -37,7 +39,19 @@ class BestSellerBooks extends StatelessWidget {
             ],
           );
         } else {
-          return Container();
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextShimmer(width: 100),
+              Gap(20),
+              GridShimmer(
+                crossAxisCount: 2,
+                mainAxisSpacing: 11,
+                crossAxisSpacing: 11,
+                childAspectRatio: .6,
+              ),
+            ],
+          );
         }
       },
     );

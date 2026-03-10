@@ -1,6 +1,7 @@
 import 'package:bookia/core/constants/app_images.dart';
 import 'package:bookia/core/functions/navigations.dart';
 import 'package:bookia/core/functions/validations.dart';
+import 'package:bookia/core/routes/routes.dart';
 import 'package:bookia/core/styles/colors.dart';
 import 'package:bookia/core/styles/text_styles.dart';
 import 'package:bookia/core/widgets/custom_svg_picture.dart';
@@ -11,8 +12,6 @@ import 'package:bookia/core/widgets/my_body_view.dart';
 import 'package:bookia/core/widgets/password_text_form_field.dart';
 import 'package:bookia/feature/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/cubit/auth_state.dart';
-import 'package:bookia/feature/auth/presentation/page/login_screen.dart';
-import 'package:bookia/feature/main/main_app_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -43,7 +42,7 @@ class RegisterScreen extends StatelessWidget {
               Gap(5),
               GestureDetector(
                 onTap: () {
-                  pushReplacement(context, LoginScreen());
+                  pushReplacement(context, Routes.login);
                 },
                 child: Text(
                   'Login',
@@ -63,7 +62,7 @@ class RegisterScreen extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccessState) {
-          pushToBase(context, MainAppScreen());
+          pushToBase(context, Routes.main);
         } else if (state is AuthErrorState) {
           pop(context);
           showErrorDialog(context, state.message);
