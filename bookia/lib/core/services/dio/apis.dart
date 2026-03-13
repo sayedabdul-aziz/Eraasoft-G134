@@ -10,4 +10,9 @@ abstract class Apis {
   // home
   static const sliders = '/sliders';
   static const productsBestseller = '/products-bestseller';
+
+  // wishlist
+  static const wishlist = '/wishlist';
+  static const addToWishlist = '/add-to-wishlist';
+  static const removeFromWishlist = '/remove-from-wishlist';
 }

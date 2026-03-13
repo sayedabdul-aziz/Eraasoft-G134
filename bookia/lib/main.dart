@@ -1,4 +1,6 @@
-import 'package:bookia/core/routes/routes.dart';
+import 'dart:io';
+
+import 'package:bookia/core/routes/app_router.dart';
 import 'package:bookia/core/services/dio/dio_provider.dart';
 import 'package:bookia/core/services/local/shared_pref.dart';
 import 'package:bookia/core/styles/themes.dart';
@@ -17,8 +19,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: Routes.routes,
+      routerConfig: AppRouter.routes,
       debugShowCheckedModeBanner: false,
+      builder: (_, child) =>
+          SafeArea(top: false, bottom: Platform.isAndroid, child: child!),
       theme: AppThemes.lightTheme,
     );
   }
