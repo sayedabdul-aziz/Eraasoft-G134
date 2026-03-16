@@ -1,8 +1,8 @@
 import 'package:bookia/core/styles/colors.dart';
 import 'package:bookia/core/styles/text_styles.dart';
 import 'package:bookia/core/widgets/custom_back_button.dart';
-import 'package:bookia/core/widgets/main_button.dart';
 import 'package:bookia/core/widgets/my_body_view.dart';
+import 'package:bookia/feature/details/presentation/widgets/cart_action/cart_icon.dart';
 import 'package:bookia/feature/details/presentation/widgets/wishlist_action/wishlist_icon.dart';
 import 'package:bookia/feature/home/data/models/best_seller_books_response/product.dart';
 import 'package:flutter/material.dart';
@@ -71,12 +71,7 @@ class DetailsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('${model.price} \$', style: TextStyles.title),
-            MainButton(
-              bgColor: AppColors.darkColor,
-              minWidth: 200,
-              text: 'Add to cart',
-              onPressed: () {},
-            ),
+            CartActionWidget(id: model.id ?? 0),
           ],
         ),
       ),

@@ -18,15 +18,15 @@ class WishlistActionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => WishlistActionCubit(),
-      child: BlocConsumer<WishlistActionCubit, DetailsState>(
+      child: BlocConsumer<WishlistActionCubit, WishlistActionState>(
         listener: (context, state) {
-          if (state is DetailsSuccessState) {
+          if (state is WishlistActionsSuccessState) {
             pop(context);
             showMyDialog(context, state.msg, type: DialogType.success);
-          } else if (state is DetailsErrorState) {
+          } else if (state is WishlistActionsErrorState) {
             pop(context);
             showMyDialog(context, 'Something went wrong');
-          } else if (state is DetailsLoadingState) {
+          } else if (state is WishlistActionsState) {
             showLoadingDialog(context);
           }
         },

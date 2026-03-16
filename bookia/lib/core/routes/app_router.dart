@@ -2,6 +2,7 @@ import 'package:bookia/core/routes/routes.dart';
 import 'package:bookia/feature/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/page/login_screen.dart';
 import 'package:bookia/feature/auth/presentation/page/register_screen.dart';
+import 'package:bookia/feature/place_order/presentation/page/place_order_screen.dart';
 import 'package:bookia/feature/details/presentation/page/details_screen.dart';
 import 'package:bookia/feature/home/data/models/best_seller_books_response/product.dart';
 import 'package:bookia/feature/main/main_app_screen.dart';
@@ -45,6 +46,12 @@ class AppRouter {
         path: Routes.details,
         builder: (context, state) {
           return DetailsScreen(model: state.extra as Product);
+        },
+      ),
+      GoRoute(
+        path: Routes.placeOrder,
+        builder: (context, state) {
+          return PlaceOrderScreen(total: state.extra as String);
         },
       ),
     ],
