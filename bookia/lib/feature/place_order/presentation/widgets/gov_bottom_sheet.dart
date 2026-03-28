@@ -1,4 +1,4 @@
-import 'package:bookia/core/functions/navigations.dart';
+import 'package:bookia/core/routes/navigations.dart';
 import 'package:bookia/core/styles/text_styles.dart';
 import 'package:bookia/feature/place_order/data/models/governorate.dart';
 import 'package:flutter/material.dart';

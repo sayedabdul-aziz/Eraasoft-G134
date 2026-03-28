@@ -1,4 +1,4 @@
-import 'package:bookia/core/functions/navigations.dart';
+import 'package:bookia/core/routes/navigations.dart';
 import 'package:bookia/core/functions/validations.dart';
 import 'package:bookia/core/routes/routes.dart';
 import 'package:bookia/core/styles/colors.dart';

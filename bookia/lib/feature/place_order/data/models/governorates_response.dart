@@ -14,6 +14,6 @@ class GovernoratesResponse {
   }
 
   Map<String, dynamic> toJson() => {
-        'data': data?.map((e) => e.toJson()).toList(),
-      };
+    'data': data?.map((e) => e.toJson()).toList(),
+  };
 }

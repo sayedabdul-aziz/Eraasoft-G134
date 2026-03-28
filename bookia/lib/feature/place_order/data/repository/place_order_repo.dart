@@ -7,9 +7,7 @@ import 'package:bookia/feature/place_order/data/models/governorates_response.dar
 class PlaceOrderRepo {
   static Future<GovernoratesResponse?> getGovernorates() async {
     try {
-      var response = await DioProvider.get(
-        endpoint: Apis.governorates,
-      );
+      var response = await DioProvider.get(endpoint: Apis.governorates);
       if (response.statusCode == 200) {
         return GovernoratesResponse.fromJson(response.data);
       } else {
