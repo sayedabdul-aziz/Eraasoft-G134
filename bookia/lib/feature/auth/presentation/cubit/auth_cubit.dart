@@ -22,11 +22,15 @@ class AuthCubit extends Cubit<AuthState> {
         password: passwordController.text,
       ),
     );
-    if (response != null) {
-      emit(AuthSuccessState());
-    } else {
-      emit(AuthErrorState(message: "Failed to login"));
-    }
+
+    response.fold(
+      (l) {
+        emit(AuthErrorState(message: l.message));
+      },
+      (r) {
+        emit(AuthSuccessState());
+      },
+    );
   }
 
   Future<void> register() async {
@@ -39,11 +43,14 @@ class AuthCubit extends Cubit<AuthState> {
         passwordConfirmation: passwordConfirmationController.text,
       ),
     );
-    if (response != null) {
-      emit(AuthSuccessState());
-    } else {
-      emit(AuthErrorState(message: "Failed to register"));
-    }
+    response.fold(
+      (l) {
+        emit(AuthErrorState(message: l.message));
+      },
+      (r) {
+        emit(AuthSuccessState());
+      },
+    );
   }
 }
 

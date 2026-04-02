@@ -38,7 +38,6 @@ class MainApp extends StatelessWidget {
 // 3) Response (Status Code / Body)
 // 4) Postman
 
-
 // localization
 // translations (English / Arabic)
 // widget layout direction (LTR / RTL)

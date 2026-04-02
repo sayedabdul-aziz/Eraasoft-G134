@@ -9,6 +9,7 @@
       "dependencies": [
         "cached_network_image",
         "carousel_slider",
+        "dartz",
         "dio",
         "easy_localization",
         "flutter",
@@ -51,6 +52,11 @@
       "dependencies": [
         "lints"
       ]
+    },
+    {
+      "name": "dartz",
+      "version": "0.10.1",
+      "dependencies": []
     },
     {
       "name": "smooth_page_indicator",

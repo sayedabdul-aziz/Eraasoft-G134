@@ -19,8 +19,6 @@ Future<void> main() async {
   );
 }
 
-
-
 // data source (Crud Operations)
 // 1) Api (Backend) ==> Remote
 // 2) Firebase & supabase (as Backend) ==> Remote
@@ -35,7 +33,6 @@ Future<void> main() async {
 // 2) Request (Method / Body / Params / Headers)
 // 3) Response (Status Code / Body)
 // 4) Postman
-
 
 // localization
 // translations (English / Arabic)
