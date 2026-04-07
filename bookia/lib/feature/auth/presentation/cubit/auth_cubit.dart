@@ -1,11 +1,16 @@
 import 'package:bookia/feature/auth/data/models/register_params.dart';
-import 'package:bookia/feature/auth/data/repo/auth_repo.dart';
+import 'package:bookia/feature/auth/domain/usecases/login_usecase.dart';
+import 'package:bookia/feature/auth/domain/usecases/register_usecase.dart';
 import 'package:bookia/feature/auth/presentation/cubit/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(AuthInitialState());
+  AuthCubit({required this.loginUseCase, required this.registerUseCase})
+    : super(AuthInitialState());
+
+  final LoginUseCase loginUseCase;
+  final RegisterUseCase registerUseCase;
 
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
@@ -16,8 +21,8 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> login() async {
     emit(AuthLoadingState());
-    var response = await AuthRepo.login(
-      RegisterParams(
+    var response = await loginUseCase.call(
+      AuthParams(
         email: emailController.text,
         password: passwordController.text,
       ),
@@ -35,8 +40,8 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> register() async {
     emit(AuthLoadingState());
-    var response = await AuthRepo.register(
-      RegisterParams(
+    var response = await registerUseCase.call(
+      AuthParams(
         name: usernameController.text,
         email: emailController.text,
         password: passwordController.text,

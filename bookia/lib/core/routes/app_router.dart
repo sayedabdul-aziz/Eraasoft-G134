@@ -1,4 +1,9 @@
+import 'package:bookia/core/di/service_locator.dart';
 import 'package:bookia/core/routes/routes.dart';
+import 'package:bookia/feature/auth/data/data_source/auth_remote_data_source_impl.dart';
+import 'package:bookia/feature/auth/data/repo/auth_repo_impl.dart';
+import 'package:bookia/feature/auth/domain/usecases/login_usecase.dart';
+import 'package:bookia/feature/auth/domain/usecases/register_usecase.dart';
 import 'package:bookia/feature/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookia/feature/auth/presentation/page/login_screen.dart';
 import 'package:bookia/feature/auth/presentation/page/register_screen.dart';
@@ -29,14 +34,24 @@ class AppRouter {
       GoRoute(
         path: Routes.login,
         builder: (context, state) => BlocProvider(
-          create: (context) => AuthCubit(),
+          create: (context) => AuthCubit(
+            loginUseCase: getIt<LoginUseCase>(),
+            registerUseCase: getIt<RegisterUseCase>(),
+          ),
           child: const LoginScreen(),
         ),
       ),
       GoRoute(
         path: Routes.register,
         builder: (context, state) => BlocProvider(
-          create: (context) => AuthCubit(),
+          create: (context) => AuthCubit(
+            loginUseCase: LoginUseCase(
+              AuthRepositoryImpl(AuthRemoteDataSourceImpl()),
+            ),
+            registerUseCase: RegisterUseCase(
+              AuthRepositoryImpl(AuthRemoteDataSourceImpl()),
+            ),
+          ),
           child: const RegisterScreen(),
         ),
       ),

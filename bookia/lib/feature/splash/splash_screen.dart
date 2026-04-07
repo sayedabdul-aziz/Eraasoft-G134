@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     String? token = SharedPref.getToken();
     Future.delayed(const Duration(seconds: 3), () {
       if (token != null && token.isNotEmpty) {
-        pushReplacement(context, Routes.welcome);
+        pushReplacement(context, Routes.main);
       } else {
         pushReplacement(context, Routes.welcome);
       }

@@ -230,6 +230,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "get_it",
+      "rootUri": "file:///Users/elsayed.abdelaziz/.pub-cache/hosted/pub.dev/get_it-9.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "glob",
       "rootUri": "file:///Users/elsayed.abdelaziz/.pub-cache/hosted/pub.dev/glob-2.1.3",
       "packageUri": "lib/",

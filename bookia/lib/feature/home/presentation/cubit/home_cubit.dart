@@ -1,9 +1,13 @@
-import 'package:bookia/feature/home/data/models/best_seller_books_response/best_seller_books_response.dart';
+import 'package:bookia/core/di/service_locator.dart';
+import 'package:bookia/core/services/dio/failure.dart';
+import 'package:bookia/feature/home/data/models/best_seller_books_response/data.dart';
 import 'package:bookia/feature/home/data/models/best_seller_books_response/product.dart';
+import 'package:bookia/feature/home/data/models/slider_response/data.dart';
 import 'package:bookia/feature/home/data/models/slider_response/slider.dart';
-import 'package:bookia/feature/home/data/models/slider_response/slider_response.dart';
-import 'package:bookia/feature/home/data/repository/hemo_repo.dart';
+import 'package:bookia/feature/home/domain/usecases/get_best_sellers_usecase.dart';
+import 'package:bookia/feature/home/domain/usecases/get_sliders_usecase.dart';
 import 'package:bookia/feature/home/presentation/cubit/home_state.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -19,20 +23,25 @@ class HomeCubit extends Cubit<HomeState> {
 
     // run apis in parallel (1 sec)
     var responses = await Future.wait([
-      HomeRepo.getSliders(),
-      HomeRepo.getBestSellers(),
+      getIt<GetSlidersUseCase>().call(),
+      getIt<GetBestSellersUseCase>().call(),
     ]);
 
     // check responses
-    var slidersResponse = responses[0] as SliderResponse?;
-    var bestSellerResponse = responses[1] as BestSellerBooksResponse?;
+    final slidersResult = responses[0] as Either<Failure, SliderResponse>;
+    final bestSellerResult =
+        responses[1] as Either<Failure, BestSellerBooksResponse>;
 
-    if (slidersResponse != null || bestSellerResponse != null) {
-      sliders = slidersResponse?.data?.sliders ?? [];
-      products = bestSellerResponse?.data?.products ?? [];
+    slidersResult.fold((l) => emit(HomeErrorState()), (r) {
+      sliders = r.sliders ?? [];
+    });
+
+    bestSellerResult.fold((l) => emit(HomeErrorState()), (r) {
+      products = r.products ?? [];
+    });
+
+    if (state is! HomeErrorState) {
       emit(HomeSuccessState());
-    } else {
-      emit(HomeErrorState());
     }
   }
 
