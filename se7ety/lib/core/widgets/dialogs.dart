@@ -14,7 +14,7 @@ void showMyDialog(
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 600),
       margin: const EdgeInsets.all(10),
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -37,6 +37,7 @@ void showLoadingDialog(BuildContext context) {
     context: context,
     barrierDismissible: false,
     barrierColor: AppColors.darkColor.withValues(alpha: 0.7),
-    builder: (context) => Center(child: Lottie.asset(AppImages.loadingJson)),
+    builder: (context) =>
+        Center(child: Lottie.asset(AppImages.loadingJson, width: 250)),
   );
 }
