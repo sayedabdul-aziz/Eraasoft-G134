@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:se7ety/core/constants/user_type_enum.dart';
+import 'package:se7ety/core/functions/image_uploader.dart';
 import 'package:se7ety/core/services/firebase/failure/failure.dart';
 import 'package:se7ety/core/services/firebase/firestore_provider.dart';
 import 'package:se7ety/core/services/local/shared_pref.dart';
@@ -59,7 +60,7 @@ class AuthRepo {
         uid: user?.uid,
       );
 
-      await FirestoreProvider.addDoctor(doctorData);
+      await FirebaseProvider.addDoctor(doctorData);
 
       return right(unit);
     } on FirebaseAuthException catch (e) {
@@ -99,7 +100,7 @@ class AuthRepo {
       );
 
       // use user id as document id => to make it easy to get user data
-      await FirestoreProvider.addPatient(patientData);
+      await FirebaseProvider.addPatient(patientData);
 
       return right(unit);
     } on FirebaseAuthException catch (e) {
@@ -110,6 +111,18 @@ class AuthRepo {
       } else {
         return left(Failure(message: 'حدث خطأ'));
       }
+    } catch (e) {
+      return left(Failure(message: 'حدث خطأ'));
+    }
+  }
+
+  static Future<Either<Failure, Unit>> updateDoctorProfile(
+    DoctorModel doctor,
+  ) async {
+    try {
+      doctor.imageUrl = await uploadImageToCloudinary(doctor.image!) ?? '';
+      await FirebaseProvider.updateDoctor(doctor);
+      return right(unit);
     } catch (e) {
       return left(Failure(message: 'حدث خطأ'));
     }

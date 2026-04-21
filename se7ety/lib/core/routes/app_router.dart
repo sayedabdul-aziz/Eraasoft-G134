@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:se7ety/core/constants/user_type_enum.dart';
 import 'package:se7ety/core/routes/routes.dart';
 import 'package:se7ety/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:se7ety/features/auth/presentation/page/doctor_registeration_screen.dart';
 import 'package:se7ety/features/auth/presentation/page/login_screen.dart';
 import 'package:se7ety/features/auth/presentation/page/register_screen.dart';
 import 'package:se7ety/features/intro/onboarding/onboarding_screen.dart';
@@ -44,6 +45,13 @@ class AppRouter {
       GoRoute(
         path: Routes.patientMainApp,
         builder: (context, state) => const PatientMainAppScreen(),
+      ),
+      GoRoute(
+        path: Routes.doctorUpdateProfile,
+        builder: (context, state) => BlocProvider(
+          create: (context) => AuthCubit(),
+          child: const UpdateDoctorProfileScreen(),
+        ),
       ),
     ],
   );

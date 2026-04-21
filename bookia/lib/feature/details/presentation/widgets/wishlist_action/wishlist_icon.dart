@@ -37,7 +37,7 @@ class WishlistActionWidget extends StatelessWidget {
               if (cubit.isProductInWishlist(id)) {
                 cubit.removeFromWishlist(id);
               } else {
-                context.read<WishlistActionCubit>().addToWishlist(id);
+                cubit.addToWishlist(id);
               }
             },
             icon: cubit.isProductInWishlist(id)
