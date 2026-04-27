@@ -17,8 +17,6 @@ import 'package:se7ety/features/auth/data/model/doctor_model.dart';
 //! update(), delete()  => Collection + doc id
 //! add(), set() => Collection
 
-
-
 class TopRatedList extends StatefulWidget {
   const TopRatedList({super.key});
 
@@ -44,10 +42,7 @@ class _TopRatedListState extends State<TopRatedList> {
             return ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: snapshot
-                  .data
-                  ?.docs
-                  .length, // all doctors in firebase (has full data)
+              itemCount: snapshot.data?.docs.length,
               itemBuilder: (context, index) {
                 DoctorModel doctor = DoctorModel.fromJson(
                   snapshot.data?.docs[index].data() as Map<String, dynamic>,
